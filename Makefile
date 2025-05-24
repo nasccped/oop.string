@@ -19,6 +19,8 @@ run:
 	@echo "them separately by running \`out/<BIN_NAME>\` (after"
 	@echo "compiling, obviously)"
 
+b: build
+
 build: $(BINS)
 
 clean: $(OUT_DIR)
