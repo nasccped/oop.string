@@ -4,9 +4,16 @@
 #include "../core/banner.h"
 #include "../core/colors.h"
 
+#include "../headers/00-main.h"
+
 char *SECTION_SUBTITLE = "00-Main";
 
 int main(int argc, char *argv[]) {
+  // if no args
+  if (argc < 2) {
+    default_message();
+    return 0;
+  }
   print_banner(SECTION_SUBTITLE);
   printf(
     "Welcome to the %sOOP%s.%sString%s, a repository to share most of my\n" // row 1
@@ -17,4 +24,8 @@ int main(int argc, char *argv[]) {
     YELLOW_NONE, RESET, BLUE_NONE, RESET
   );
   return 0;
+}
+
+void default_message() {
+  printf("This is the default message!\n");
 }
