@@ -27,7 +27,7 @@ void print_banner(char *subtitle) {
   for (int i = 0; i < right_gap; i++)
     printf(" ");
   printf("|%s\n", RESET);
-  printf("%s'==================================================================='%s\n",
+  printf("%s'==================================================================='%s\n\n",
       WHITE_NONE,
       RESET);
 }
