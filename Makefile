@@ -1,25 +1,33 @@
 CC=gcc
 SRC_DIR=src
+CORE_DIR=core
 SRC_FILES=$(wildcard $(SRC_DIR)/*.c)
+CORE_FILES=$(wildcard $(CORE_DIR)/*.c)
 OUT_DIR=out
-OUT_FILE=$(OUT_DIR)/main
+BINS=$(patsubst $(SRC_DIR)/%.c,$(OUT_DIR)/%,$(SRC_FILES))
 
+all:
+	@echo "Due to complex reasons, you aren't able to run \`make all\`"
+	@echo "There's many sources and binaries which should be"
+	@echo "compiled and separately runned. But you still can run:"
+	@echo ">   make build"
+	@echo ">   make clean"
+	@echo "Look the official repo: https://github.com/nasccped/oop.string"
 
-all: build run clean
+run:
+	@echo "You can't run all binaries in a row. You should execute"
+	@echo "them separately by running \`out/<BIN_NAME>\` (after"
+	@echo "compiling, obviously)"
 
-run: $(OUT_FILE)
-	@echo "Isn't possible to pass args when calling Makefile script";
-	@echo "Keep it on mind ;^D";
-	@echo .
-	$(OUT_FILE)
-
-build:
-	@if [ ! -d $(OUT_DIR) ]; then \
-		mkdir $(OUT_DIR); \
-	fi
-	$(CC) -o $(OUT_FILE) $(SRC_FILES)
+build: $(BINS)
 
 clean: $(OUT_DIR)
 	rm -rf $(OUT_DIR)
+
+$(OUT_DIR)/%: $(SRC_DIR)/%.c $(CORE_FILES)
+	@if [ ! -d $(OUT_DIR) ]; then \
+		mkdir $(OUT_DIR); \
+	fi
+	$(CC) -o $@ $^
 
 .PHONY: all build run clean
