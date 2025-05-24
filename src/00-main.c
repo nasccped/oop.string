@@ -7,4 +7,5 @@ char *SECTION_SUBTITLE = "Main";
 
 int main(int argc, char *argv[]) {
   print_banner(SECTION_SUBTITLE);
+  return 0;
 }
