@@ -9,5 +9,6 @@ extern const char *GREEN_NONE;
 extern const char *YELLOW_NONE;
 extern const char *WHITE_NONE;
 extern const char *WHITE_BLUE;
+extern const char *BLUE_NONE;
 
 #endif // !_CORE_COLORS
