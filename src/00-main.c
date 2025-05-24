@@ -4,7 +4,7 @@
 #include "../core/banner.h"
 #include "../core/colors.h"
 
-char *SECTION_SUBTITLE = "Main";
+char *SECTION_SUBTITLE = "00-Main";
 
 int main(int argc, char *argv[]) {
   print_banner(SECTION_SUBTITLE);
