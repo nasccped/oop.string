@@ -5,6 +5,7 @@
 #pragma once
 
 extern const char *RESET;
+extern const char *RED_NONE;
 extern const char *GREEN_NONE;
 extern const char *YELLOW_NONE;
 extern const char *WHITE_NONE;
