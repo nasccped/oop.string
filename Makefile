@@ -21,6 +21,8 @@ run:
 
 b: build
 
+c: clean
+
 build: $(BINS)
 
 clean: $(OUT_DIR)
