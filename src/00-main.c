@@ -7,20 +7,36 @@
 
 #include "../headers/00-main.h"
 
+typedef struct _SubcommandStruct Subcommand;
+
+Subcommand SUBCOMMANDS[] = {
+  {"help", "Show this panel", help_function},
+  {NULL, NULL, NULL},
+};
+
 int main(int argc, char *argv[]) {
-  ARG_HANDLER.set_fields(&ARG_HANDLER, argc, argv);
-  // if no args
-  if (!ARG_HANDLER.have_args(&ARG_HANDLER)) {
-    default_message();
+  ARG_HANDLER.set_fields(&ARG_HANDLER, argc, argv, SUBCOMMANDS);
+  // if invalid argc (> 1)
+  if (!ARG_HANDLER.argc_is_valid(&ARG_HANDLER)) {
+    ARG_HANDLER.invalid_argc_message(&ARG_HANDLER);
+    printf("\n");
     return 0;
   }
-  printf(
-    "\nDefinitely not a default message %s:^D%s\n" // row 1
-    "Arg handling %sshould be implemented%s!\n\n", // row 2
-    // row 1
-    BLUE_NONE, RESET,
-    // row 2
-    GREEN_NONE, RESET);
+  // get function point. + subcommand and test if are valids
+  Function func = ARG_HANDLER.get_function(&ARG_HANDLER);
+  char *target_argv = ARG_HANDLER.get_argv(&ARG_HANDLER);
+  if (!func && target_argv) {
+    ARG_HANDLER.invalid_subcommand_message(&ARG_HANDLER);
+    printf("\n");
+    return 0;
+  }
+  if (func) {
+    func();
+    printf("\n");
+    return 0;
+  }
+
+  default_message();
   return 0;
 }
 
@@ -48,4 +64,8 @@ void default_message() {
     // row 3
     YELLOW_NONE, RESET
   );
+}
+
+void help_function() {
+  ARG_HANDLER.print_subcommands(&ARG_HANDLER);
 }
