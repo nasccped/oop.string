@@ -15,7 +15,7 @@ void print_banner(char *subtitle) {
     - get_subtitle_length(subtitle) // subctract the subtitle len
     - 1;                            // subtract 1 (right border)
 
-  printf("%s.===================================================================.%s\n",
+  printf("\n%s.===================================================================.%s\n",
       WHITE_NONE,
       RESET);
   printf("| %sOOP.String%s: %s%s%s",
