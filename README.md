@@ -22,3 +22,27 @@ Update object fields during changing/reading meaning values...
 
 So, I take a time to study and share knowledge about
 `C lang Strings` 🔗
+
+### Sources
+
+About **sources**, there's three related dirs:
+1. **core**: core utilities used amoung the entire program (C/Headers)
+2. **headers**: header definitions destinated for each C source
+3. **src**: well, the source (C file implementations)
+
+### Compiling
+
+There's also a Makefile script which you can use to build the
+binaries. In the Makefile you can use the `build` and `clean`
+subcommands as well as they alias (`b` and `c`, respectively).
+
+### Running
+
+There's not a `run` in the Makefile. Each source file will produce it
+own binary that should be runned indenpendently from other binaries.
+
+By default, they'll be droped at **out/** dir and should be runned
+like:
+```sh
+out/<BIN_NAME> (MAYBE A SUBCOMMAND)
+```
