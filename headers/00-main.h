@@ -1,6 +1,6 @@
 #ifndef _00_MAIN
 #define _00_MAIN
 
-void default_message();
+void help_function();
 
 #endif // !_00_MAIN
