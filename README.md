@@ -17,3 +17,9 @@ Since all this stuff is developed with C technology, you'll need:
 - `GNU Make` (since there's a lot of `Makefiles`)
 - `bash` (there's `bash` based scripts that works around the Makefile stuff)
 - `sudo` privileges, since some scripts use `chmod` (I guess)
+
+## Warning
+
+All this project is being developed in `Fedora Linux 42 (Adams) x86_64`. Using
+another OS/kernel can result in a different behavior (Yes. I'm talking about
+Windows `._.`).
