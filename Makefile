@@ -30,7 +30,7 @@ fmt: $(FMT_SCRIPT)
 		exit 1; \
 	fi;
 	@echo -e "Formatting code with \`$(GREEN)scripts/fmt.sh$(RESET)\`"
-	@$(FMT_SCRIPT)
+	@$<
 
 new: $(NEW_SCRIPT)
 	@if [ ! -x $< ]; then \
@@ -40,6 +40,6 @@ new: $(NEW_SCRIPT)
 		exit 1; \
 	fi;
 	@echo -e "Generating a new code group with \`$(GREEN)$(NEW_SCRIPT)$(RESET)\`"
-	@$(NEW_SCRIPT)
+	@$<
 
 .PHONY: all fmt new
