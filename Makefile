@@ -5,6 +5,7 @@ GREEN=\e[92m
 YELLOW=\e[93m
 BLUE=\e[94m
 FMT_SCRIPT=./scripts/fmt.sh
+NEW_SCRIPT=./scripts/new.sh
 
 all:
 	@echo -e "$(GREEN)oop.string$(RESET) project: \n\
@@ -31,4 +32,14 @@ fmt: $(FMT_SCRIPT)
 	@echo -e "Formatting code with \`$(GREEN)scripts/fmt.sh$(RESET)\`"
 	@$(FMT_SCRIPT)
 
-.PHONY: all fmt
+new: $(NEW_SCRIPT)
+	@if [ ! -x $< ]; then \
+		echo -e "$(RED)error$(RESET): $< isn't executable"; \
+		echo -e "consider using \`$(YELLOW)chmod +x $<$(RESET)\`"; \
+		echo "Aborting."; \
+		exit 1; \
+	fi;
+	@echo -e "Generating a new code group with \`$(GREEN)$(NEW_SCRIPT)$(RESET)\`"
+	@$(NEW_SCRIPT)
+
+.PHONY: all fmt new
