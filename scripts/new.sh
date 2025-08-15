@@ -22,7 +22,8 @@ build: \$(OUT)
 run: \$(MAIN_OUT)
 	$<
 
-\$(MAIN_OUT): build
+\$(MAIN_OUT):
+	\$(CC) -o \$(MAIN_OUT) \$(FLS)
 
 clean:
 	@if [ -d \$(OUT) ]; then \
